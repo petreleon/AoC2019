@@ -31,75 +31,75 @@ def sum_in_dict(dictionary, key, value):
 #your code here
 
 
-w = lines[0].split(",")
-v = [(i[0], int(i[1:])) for i in w]
+splited_line = lines[0].split(",")
+line1_commands = [(i[0], int(i[1:])) for i in splited_line]
 
-w = lines[1].split(",")
-o = [(i[0], int(i[1:])) for i in w]
-dict1 = {}
-dict2 = {}
+splited_line = lines[1].split(",")
+line2_commands = [(i[0], int(i[1:])) for i in splited_line]
+line1_steps = {}
+line2_steps = {}
 
 originX = 0
 originY = 0
 
-x = originX
-y = originY
-count_ = 0
+actualLineX = originX
+actualLineY = originY
+count_steps = 0
 
-for i in v:
-    if i[0] == 'U':
-        for j in range(i[1]):
-            count_ += 1
-            y += 1
-            sum_in_dict(dict1, (x,y), count_)
-    if i[0] == 'D':
-        for j in range(i[1]):
-            count_ += 1
-            y -= 1
-            sum_in_dict(dict1, (x,y), count_)
-    if i[0] == 'R':
-        for j in range(i[1]):
-            count_ += 1
-            x += 1
-            sum_in_dict(dict1, (x,y), count_)
-    if i[0] == 'L':
-        for j in range(i[1]):
-            count_ += 1
-            x -= 1
-            sum_in_dict(dict1, (x,y), count_)
+for actual_command in line1_commands:
+    if actual_command[0] == 'U':
+        for repeating_iterator in range(actual_command[1]):
+            count_steps += 1
+            actualLineY += 1
+            sum_in_dict(line1_steps, (actualLineX, actualLineY), count_steps)
+    if actual_command[0] == 'D':
+        for repeating_iterator in range(actual_command[1]):
+            count_steps += 1
+            actualLineY -= 1
+            sum_in_dict(line1_steps, (actualLineX, actualLineY), count_steps)
+    if actual_command[0] == 'R':
+        for repeating_iterator in range(actual_command[1]):
+            count_steps += 1
+            actualLineX += 1
+            sum_in_dict(line1_steps, (actualLineX, actualLineY), count_steps)
+    if actual_command[0] == 'L':
+        for repeating_iterator in range(actual_command[1]):
+            count_steps += 1
+            actualLineX -= 1
+            sum_in_dict(line1_steps, (actualLineX, actualLineY), count_steps)
 
-x = originX
-y = originY
-count_ = 0
+actualLineX = originX
+actualLineY = originY
+count_steps = 0
 
-for i in o:
+for actual_command in line2_commands:
 
-    if i[0] == 'U':
-        for j in range(i[1]):
-            count_ += 1
-            y += 1
-            sum_in_dict(dict2, (x,y), count_)
-    if i[0] == 'D':
-        for j in range(i[1]):
-            count_ += 1
-            y -= 1
-            sum_in_dict(dict2, (x,y), count_)
-    if i[0] == 'R':
-        for j in range(i[1]):
-            count_ += 1
-            x += 1
-            sum_in_dict(dict2, (x,y), count_)
-    if i[0] == 'L':
-        for j in range(i[1]):
-            count_ += 1
-            x -= 1
-            sum_in_dict(dict2, (x,y), count_)
+    if actual_command[0] == 'U':
+        for repeating_iterator in range(actual_command[1]):
+            count_steps += 1
+            actualLineY += 1
+            sum_in_dict(line2_steps, (actualLineX, actualLineY), count_steps)
+    if actual_command[0] == 'D':
+        for repeating_iterator in range(actual_command[1]):
+            count_steps += 1
+            actualLineY -= 1
+            sum_in_dict(line2_steps, (actualLineX, actualLineY), count_steps)
+    if actual_command[0] == 'R':
+        for repeating_iterator in range(actual_command[1]):
+            count_steps += 1
+            actualLineX += 1
+            sum_in_dict(line2_steps, (actualLineX, actualLineY), count_steps)
+    if actual_command[0] == 'L':
+        for repeating_iterator in range(actual_command[1]):
+            count_steps += 1
+            actualLineX -= 1
+            sum_in_dict(line2_steps, (actualLineX, actualLineY), count_steps)
 
-interections = [value for value in dict1.keys() if value in dict2.keys()]
+interections = [value for value in line1_steps.keys() if value in line2_steps.keys()]
 
-interections.sort(key=lambda x: abs(dict1[x])+abs(dict2[x]))
+interections.sort(key=lambda x: abs(line1_steps[x]) + abs(line2_steps[x]))
 
-response = abs(dict1[interections[0]])+abs(dict2[interections[0]])
+response = abs(line1_steps[interections[0]]) + abs(line2_steps[interections[0]])
 
 pyperclip.copy(response)
 #not working
