@@ -49,8 +49,6 @@ def position(list_, mode, relative_index, location):
 
 def machine(input_, output_, list_, position_index=0):
     relative = 0
-    global lines
-
     compute_index = position_index
 
     while list_[compute_index] % 100 != 99:
