@@ -16,7 +16,7 @@ import math
 
 jar = requests.cookies.RequestsCookieJar()
 
-jar.set('session', '53616c7465645f5f5bbe75d49d6fcfcac1e8502413e0a4e632529212b3de5ee3b6577f4ba97c30b41139d519f0583cfc',
+jar.set('session', 'secret',
         domain='adventofcode.com')
 
 s = requests.Session()
