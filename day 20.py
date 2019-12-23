@@ -78,6 +78,22 @@ THIRD ATTEMPT
 OR A J
 AND E J
 
+Final:
+NOT F J
+OR E J
+OR H J
+AND D J
+NOT C T
+AND T J
+NOT D T
+OR B T
+OR E T
+NOT T T
+OR T J
+NOT A T
+OR T J
+RUN
+
 '''
 
 indexOfInput = 0
